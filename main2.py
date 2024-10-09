@@ -11,7 +11,6 @@ page = requests.get(url, headers=headers)
 
 soup = BeautifulSoup(page.text, "html.parser")
 
-#lista divs seccion maquinas
 regMaquinasWeb = soup.find_all("li", class_ = "item product product-item")
 
 
@@ -44,7 +43,6 @@ for one in range(len(regMaquinasWeb)):
     linkWebSiteMaquina = one.find("a", class_ = "product photo product-item-photo").get("href").strip()
 
     print("link:", linkWebSiteMaquina)
-    # Nombre de la máquina
     print("Nombre de la máquina:", titleMaq, "\n")
 
 """    # Vendedor de la máquina (empresa)
