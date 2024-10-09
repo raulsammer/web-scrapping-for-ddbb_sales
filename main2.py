@@ -16,7 +16,7 @@ regMaquinasWeb = soup.find_all("li", class_ = "item product product-item")
 
 for one in range(len(regMaquinasWeb)):
 
-
+#iteracion para cada div
     one = regMaquinasWeb[one]
     
     titleMaq = one.strong.a.text.strip()
