@@ -14,33 +14,41 @@ soup = BeautifulSoup(page.text, "html.parser")
 regMaquinasWeb = soup.find_all("li", class_ = "item product product-item")
 
 
-for one in range(len(regMaquinasWeb)):
+for i in range(len(regMaquinasWeb)):
 
 #iteracion para cada div
-    one = regMaquinasWeb[one]
+    i = regMaquinasWeb[i]
     
-    titleMaq = one.strong.a.text.strip()
+    titleMaq = i.strong.a.text.strip()
 
-    vendedorMaquina = one.find("div", class_ = "special-company").text.strip()
-    vendedorMaquina= vendedorMaquina.replace("Empresa: ", "").strip()
+    vendedorMaquina = i.find("div", class_ = "special-company")
+    if vendedorMaquina:
+        vendedorMaquina = i.find("div", class_ = "special-company").text.strip()
+        vendedorMaquina= vendedorMaquina.replace("Empresa: ", "").strip()
+    else:
+        vendedorMaquina = "No disponible"
 
-
-    precio = one.find("span", class_="price").text.strip()
+    precio = i.find("span", class_="price").text.strip()
     precio = precio.replace("US$\xa0", "").replace(",", "")
 
-    ubicacionVentaPais = one.find("div", class_ = "country-item").text
 
-    horometro = one.find("div", class_="special-attr special-attr-hours").text
+    ubicacionVentaPais = i.find("div", class_ = "country-item")
+    if ubicacionVentaPais:
+        ubicacionVentaPais = i.find("div", class_ = "country-item").text.strip()
+    else: 
+        ubicacionVentaPais = "No disponible"
+
+    horometro = i.find("div", class_="special-attr special-attr-hours").text
     horometro = horometro.replace(" hrs", "").replace(",", "").strip()
 
-    ubicacionVentaCiudad = one.find("div", class_="special-attr special-attr-loc").text.strip()
+    ubicacionVentaCiudad = i.find("div", class_="special-attr special-attr-loc").text.strip()
 
-    marcaFabricante = one.find("div", class_="special-attr special-attr-brand").text.strip()
+    marcaFabricante = i.find("div", class_="special-attr special-attr-brand").text.strip()
 
-    añoFabricacion = one.find("div", class_="special-attr special-attr-year").text.strip()
+    añoFabricacion = i.find("div", class_="special-attr special-attr-year").text.strip()
     añoFabricacion = añoFabricacion.replace("Año: ", "").strip()
 
-    linkWebSiteMaquina = one.find("a", class_ = "product photo product-item-photo").get("href").strip()
+    linkWebSiteMaquina = i.find("a", class_ = "product photo product-item-photo").get("href").strip()
 
     print("link:", linkWebSiteMaquina)
     print("Nombre de la máquina:", titleMaq, "\n")
