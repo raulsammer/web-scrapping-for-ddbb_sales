@@ -1,10 +1,9 @@
-import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
 # Función para obtener el contenido de la página web
 def webView():
-    url = 'https://maquinet.com/productos/maquinas-usadas/product_list_limit-400.html'
+    url = 'https://maquinet.com/productos/maquinas-usadas.html?p=1'
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
@@ -96,20 +95,15 @@ maquinas = webView()
 # Llamada a la función para hacer scraping y guardar los datos
 scrappingData(maquinas)
 
-# Crear un DataFrame con los datos obtenidos
-data = {
-    "Nombre de la máquina": titlesMaq,
-    "Vendedor": vendedoresMaquina,
-    "Precio": precios,
-    "País de venta": ubicacionesVentaPais,
-    "Horómetro": horometros,
-    "Ciudad de venta": ubicacionesVentaCiudad,
-    "Marca": marcasFabricante,
-    "Año de fabricación": añosFabricacion,
-    "Enlace": linksWebSiteMaquina
-}
+# Imprimir el contenido de las listas como verificación
+# Imprimir la longitud de cada lista
+print("Cantidad de nombres de las máquinas:", len(titlesMaq))
+print("Cantidad de vendedores:", len(vendedoresMaquina))
+print("Cantidad de precios:", len(precios))
+print("Cantidad de países de venta:", len(ubicacionesVentaPais))
+print("Cantidad de horómetros:", len(horometros))
+print("Cantidad de ciudades de venta:", len(ubicacionesVentaCiudad))
+print("Cantidad de marcas:", len(marcasFabricante))
+print("Cantidad de años de fabricación:", len(añosFabricacion))
+print("Cantidad de enlaces:", len(linksWebSiteMaquina))
 
-df = pd.DataFrame(data)
-
-# Exportar el DataFrame a un archivo CSV
-df.to_csv("maquinas_usadas.csv", index=False)
