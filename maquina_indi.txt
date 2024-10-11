@@ -1,69 +1,38 @@
-<li class="item product product-item">
-<div class="product-item-info" data-container="product-grid" id="product-item-info_2068">
-<a class="product photo product-item-photo" href="https://maquinet.com/excavadora-caterpillar-336.html" tabindex="-1">
-<span class="product-image-container product-image-container-2068">
-<span class="product-image-wrapper">
-<img alt="Excavadora Caterpillar 336" class="product-image-photo" height="250" loading="lazy" src="https://maquinet.com/media/catalog/product/cache/2814a5388877cda55b5c3b1c5cd9cd58/w/h/whatsapp_image_2024-04-19_at_15.00.26.jpeg" width="360"/></span>
-</span>
-<style>.product-image-container-2068 {
-    width: 360px;
-    height: auto;
-    aspect-ratio: 360 / 250;
-}
-.product-image-container-2068 span.product-image-wrapper {
-    height: 100%;
-    width: 100%;
-}
-@supports not (aspect-ratio: auto) { 
-    .product-image-container-2068 span.product-image-wrapper {
-        padding-bottom: 69.444444444444%;
-    }
-}</style> </a>
-<div class="special-attributes-badge-wrapper">
-<div class="special-attributes-badge special-used">
-                  Usado                </div>
-</div>
-<div class="maquinet-extra-info">
-<div class="special-attributes">
-<div class="special-attr special-attr-hours" title="Horómetro">1,830 hrs</div>
-<div class="special-attr special-attr-loc" title="Ubicación disponible">Cajamarca</div>
-<div class="special-attr special-attr-brand" title="Marca">CATERPILLAR</div>
-<div class="special-attr special-attr-year" title="Year of manufacture">Año: 2019</div>
-</div>
-</div>
-<div class="product details product-item-details">
-<strong class="product name product-item-name">
-<a class="product-item-link" href="https://maquinet.com/excavadora-caterpillar-336.html">
-                  Excavadora Caterpillar 336                </a>
-</strong>
-<div class="special-company" style="visibility: visible">
-<b>Empresa:</b> Ferreyros S.A.                </div>
-<div class="price-box price-final_price" data-price-box="product-id-2068" data-product-id="2068" data-role="priceBox">
-<span class="price-container price-final_price tax weee">
-<span class="price-wrapper" data-price-amount="305600" data-price-type="finalPrice" id="product-price-2068"><div class="price-tax-box">+IGV</div><span class="price">US$ 305,600</span></span>
-</span>
-</div><div class="country-from"><img class="country-flag" src="https://maquinet.com/static/version1726719900/frontend/Ferreycorp/Maquinet/es_PE/images/country-flags/pe.svg"/><div class="country-item">Perú</div></div>
-<div class="product-lead-add">
-<a class="trigger-ajax-lead" data-collection-type="Used Machinery" data-product-mat="336_L3:AA" data-product-serial="GDY01557" data-product-sku="GDY01557" href="javascript:void(0)">¡Lo quiero!</a>
-</div>
-<div class="product-item-inner">
-<div class="product-item-actions">
-<div class="actions-primary">
-<form action="https://maquinet.com/checkout/cart/add/uenc/aHR0cHM6Ly9tYXF1aW5ldC5jb20vcHJvZHVjdG9zL21hcXVpbmFzLXVzYWRhcy5odG1sP3A9MQ~~/product/2068/" data-mage-init='{"catalogAddToCart": {}}' data-product-sku="GDY01557" data-role="tocart-form" method="post">
-<input name="product" type="hidden" value="2068"/>
-<input name="uenc" type="hidden" value="aHR0cHM6Ly9tYXF1aW5ldC5jb20vY2hlY2tvdXQvY2FydC9hZGQvdWVuYy9hSFIwY0hNNkx5OXRZWEYxYVc1bGRDNWpiMjB2Y0hKdlpIVmpkRzl6TDIxaGNYVnBibUZ6TFhWellXUmhjeTVvZEcxc1AzQTlNUX5-L3Byb2R1Y3QvMjA2OC8~"/>
-<input name="form_key" type="hidden" value="ziJ6BbZfWaPt4vuc"> <button class="action tocart primary" disabled="" title="añadir a la cesta" type="submit">
-<span>añadir a la cesta</span>
-</button>
-</input></form>
-</div>
-<div class="actions-secondary" data-role="add-to-links">
-<a aria-label="Añadir a la lista de deseos" class="action towishlist" data-action="add-to-wishlist" data-post='{"action":"https:\/\/maquinet.com\/wishlist\/index\/add\/","data":{"product":2068,"uenc":"aHR0cHM6Ly9tYXF1aW5ldC5jb20vcHJvZHVjdG9zL21hcXVpbmFzLXVzYWRhcy5odG1sP3A9MQ~~"}}' href="#" role="button" title="Añadir a la lista de deseos">
-<span>Añadir a la lista de deseos</span>
+[<li class="columnas__item" ng-repeat="producto in productos">
+<div ng-class="{true:'minificha', false:'minificha minificha--fila'}[tipoVista]">
+<div ng-attr-data-comercial="{{ (producto.situacionComercial == 'R') ? 'reservado' : (producto.situacionComercial == 'V') ? 'vendido' : (producto.situacionComercial == 'P') ? 'proximamente' : null }}" ng-class="{true:'minificha__imagen minificha__imagen--no-disponible', false:'minificha__imagen'}[producto.stock == '0' || producto.situacionComercial == 'V']">
+<div class="minificha__vista-rapida" ng-click="getVistaPreviaProducto('producto',$index)">
+<a class="vista-rapida__boton" data-target="#modal-vistaprevia" data-toggle="modal" href="" type="button">
+<strong>Vista rápida</strong>
+</a>
+<div class="minificha__seguimiento" ng-init="iniciaIconoSeguimiento('',producto.idproducto,producto.isProductoSeguido)">
+<div class="minificha__icono">
+<span class="tooly" data-tooltip-content="Seguir"></span>
+<a data-toggle="modal" href="#modal-seguimiento">
+<span class="iconify" data-icon="ant-design:heart-outlined" data-inline="false"></span>
 </a>
 </div>
 </div>
 </div>
+<!-- 										<div class="minificha__etiqueta-campania"> -->
+<!-- 										</div>  -->
+<a href="/tiendaonline/webapp/detalle/{{producto.seourlrewriter}}/{{producto.idproducto}}" ng-if="producto.idFamilia == null">
+<img alt="{{producto.nombre}}" loading="lazy" ng-if="producto.imagenes!=null &amp;&amp; producto.imagenes.length&gt;0" ng-src="{{producto.imagenes[0].url}}" onerror="if (this.src != 'error.jpg') this.src = '/tiendaonline/images/site/no-disponible.png';" width="300"/>
+<img alt="" loading="lazy" ng-if="producto.imagenes==null || producto.imagenes.length==0" ng-src="/tiendaonline/images/site/no-disponible.png" width="300"/>
+</a>
+<div class="minificha__iconos-producto">
+<ul class="minificha__sellos">
+<li ng-repeat="cert in producto.certificados">
+<div class="minificha__sellos-item" ng-if="cert.codigo=='CERTINS'&amp;&amp;cert.valor.trim()=='1'">
+<span class="tooly" data-tooltip-content="Inspección BeMarket"></span>
+<img class="img-responsive" src="/tiendaonline/images/site/inspeccion-mini.png"/>
 </div>
+<div class="minificha__sellos-item" ng-if="cert.codigo=='CERTGAR'&amp;&amp;cert.valor.trim()=='1'">
+<span class="tooly" data-tooltip-content="Garantía SK"></span>
+<img class="img-responsive" src="/tiendaonline/images/site/garantia-mini.png"/>
 </div>
+<li ng-if="producto.medioPagoElectronico == 1">
+<img class="img-responsive" src="/tiendaonline/images/site/pago-tarjeta-mini.png"/>
 </li>
+</li>
+</ul></div></div></div></li>]

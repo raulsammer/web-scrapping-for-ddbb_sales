@@ -29,8 +29,9 @@ linksWebSiteMaquina = []
 # Función para extraer y guardar los datos en las listas
 def scrappingData(regMaquinasWeb):
     for maquina in regMaquinasWeb:
+
         # Nombre de la máquina
-        titleMaq = maquina.strong.a.text.strip()
+        titleMaq = maquina.strong.a.text.strip().replace("	", "")
         titlesMaq.append(titleMaq)
         
         # Vendedor de la máquina
