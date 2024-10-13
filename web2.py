@@ -98,6 +98,7 @@ for page_num in range(1, total_paginas + 1):
     
     # Esperar a que la página cargue completamente
     time.sleep(1)
+
     
     # Extraer todos los links de productos en la página actual
     li_elements = driver.find_elements(By.CSS_SELECTOR, 'ul#DivItems li')

@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 # Función para obtener el contenido de la página web
 def webView():
@@ -97,8 +98,12 @@ maquinas = webView()
 # Llamada a la función para hacer scraping y guardar los datos
 scrappingData(maquinas)
 
+# Obtener la fecha actual
+fecha_actual = datetime.now().strftime("%d/%m/%Y")
+
 # Crear un DataFrame con los datos obtenidos
 data = {
+    "PaginaWeb": "Maquinet",
     "Nombre de la máquina": titlesMaq,
     "Vendedor": vendedoresMaquina,
     "Precio": precios,
@@ -107,7 +112,8 @@ data = {
     "Ciudad de venta": ubicacionesVentaCiudad,
     "Marca": marcasFabricante,
     "Año de fabricación": añosFabricacion,
-    "Enlace": linksWebSiteMaquina
+    "Enlace": linksWebSiteMaquina,
+    "Fecha de reporte": fecha_actual  
 }
 
 df = pd.DataFrame(data)
